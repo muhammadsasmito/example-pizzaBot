@@ -1,0 +1,27 @@
+priority: 10
+intents:
+
+  unknownQuestion:
+    initial: true
+    type: text
+    classifier:
+        nlu: qisg
+        match: question
+    
+states:
+
+    init:
+      initial: true
+      action:
+        name: sayUnknownQuestion
+      end: true
+      transitions:
+        init:
+          fallback: true
+
+actions:
+
+    sayUnknownQuestion:
+      type: text
+      options:
+        text: Hah kamu tanya apaan sih ?

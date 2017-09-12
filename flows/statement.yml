@@ -1,0 +1,27 @@
+priority: 10
+intents:
+
+  unknownStatement:
+    initial: true
+    type: text
+    classifier:
+        nlu: qisg
+        match: statement
+    
+states:
+
+    init:
+      initial: true
+      action:
+        name: sayUnknownStatement
+      end: true
+      transitions:
+        init:
+          fallback: true
+
+actions:
+
+    sayUnknownStatement:
+      type: text
+      options:
+        text: Wah terus terus ..

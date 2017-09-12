@@ -1,0 +1,27 @@
+priority: 10
+intents:
+
+  unknownCommand:
+    initial: true
+    type: text
+    classifier:
+        nlu: qisg
+        match: instruction
+    
+states:
+
+    init:
+      initial: true
+      action:
+        name: sayUnknownCommand
+      end: true
+      transitions:
+        init:
+          fallback: true
+
+actions:
+
+    sayUnknownCommand:
+      type: text
+      options:
+        text: Wah aku belum bisa nih kalo kamu suruh gitu

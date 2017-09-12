@@ -1,0 +1,19 @@
+fallback: true
+intents:
+  fallbackIntent:
+      fallback: true
+states:
+  init:
+    initial: true
+    end: true
+    transitions:
+      init:
+        fallback: true
+    action:
+      name: fallbackAction
+
+actions:
+  fallbackAction:
+    type: text
+    options:
+      text: "Maaf, saya tidak mengerti."

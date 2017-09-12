@@ -1,0 +1,58 @@
+priority: 9
+intents:
+    greeting:
+        attributes:
+            person:
+                nlu: person
+        initial: true
+        type: text
+        classifier:
+            nlu: qisg
+            match: greeting
+        priority: 10
+    reenter:
+      type: command
+      condition: content == "reenter"
+
+
+states:
+    init:
+        initial: true
+        transitions:
+          greet: 
+            condition: "intent == 'greeting'"
+        
+        transit:
+          context.person: "attributes.person"
+
+    greet:
+        end: true
+        float:
+            fallback: true
+            mapping:
+                context.person: "attributes.person || context.person || null"
+        action:
+            - name: greetWOPerson
+              condition: "!context.greetCount && !context.person"
+            - name: greetBack
+              condition: "!context.greetCount && context.person"
+            - name: greetAgain
+              condition: "context.greetCount >= 1"
+        transit:
+            context.greetCount: "intent == 'greeting' ? (context.greetCount || 0) + 1 : 0"
+
+actions:
+    greetBack:
+        type: text
+        options:
+            text: "Halo, $(context.person) mau pesen apa?"
+
+    greetAgain:
+        type: text
+        options:
+            text: "Halo mau pesen apa?"
+
+    greetWOPerson:
+        type: text
+        options:
+            text: "Halo mau pesen apa?"
