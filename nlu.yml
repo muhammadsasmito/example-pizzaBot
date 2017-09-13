@@ -1,0 +1,144 @@
+ner:
+    type: verstandTagger
+    options:
+        model: dcaca5ae-be7f-42f2-a6a1-2b250d4336fd
+
+qisg:
+    type: verstandClassifier
+    options:
+        model: cb58d784-9e87-40d5-bae1-6077b934c061
+
+person:
+    type: keyword
+    options:
+        keywords:
+            febi:
+                - feb
+                - febi
+            dewi:
+                - dewi
+
+address:
+    type: keyword
+    options:
+        keywords:
+            jalan:
+                - jalan
+                - jl
+                - jln
+
+yesno:
+    type: verstandClassifier
+    options:
+        model: b7df76e5-b95d-4925-9f86-2796ea85403a
+                
+order:
+    type: keyword
+    options:
+        keywords:
+            pizzaOrder:
+                - pesan
+                - pesen
+                - beli
+                - pesen pizza
+                - pizza dong
+                - pizza
+            cancel:
+                - batal
+                - cancel
+                - ga jadi
+                - gajadi
+            askOptions:
+                - ada apa aja
+                - pilihannya
+                - pilihannya apa aja
+                - apa aja
+
+pizzaInfo:
+    type: keyword
+    options:
+        keywords:
+            pizzaType:
+                - tipenya
+                - tipe
+                - tipe nya
+                - type
+            pizzaCrust:
+                - pinggirannya
+                - pinggiran
+                - crust
+                - crustnya
+                - crust nya
+            pizzaSize:
+                - ukurannya
+                - ukuran nya
+                - ukuran
+                - size
+                - size nya
+                - sizenya
+
+pizzaType:
+    type: keyword
+    options:
+        keywords:
+            American All Star:
+                - all star
+                - aas
+                - american all star
+                - american
+            chicken BBQ:
+                - chicken bbq
+                - bbq
+            Chicken Lovers:
+                - chicken lovers
+                - lovers
+            Chicken Pepperoni:
+                - chicken pepperoni
+                - pepperoni
+
+pizzaSize:
+    type: keyword
+    options:
+        keywords:
+            xl:
+                - paling besar
+                - paling gede
+                - XL
+            l:
+                - L
+                - besar
+            m:
+                - M
+                - sedang
+                - medium
+            s:
+                - kecil
+                - paling kecil
+                - s
+
+pizzaCrust:
+    type: keyword
+    options:
+        keywords:
+            thinCrust:
+                - thin crust
+                - thin
+            pan:
+                - pan
+            handTossed:
+                - hand tossed
+                - tossed
+                
+pizzaQuantity:
+    type: keyword
+    options:
+        keywords:
+            satu:
+                - 1
+                - satu
+            dua:
+                - 2
+                - dua
+            tiga:
+                - 3
+                - tiga
